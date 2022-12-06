@@ -13,16 +13,15 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import ru.mokita.dotacreeps.BuildConfig
 import ru.mokita.dotacreeps.databinding.ItemHeroBinding
-import ru.mokita.dotacreeps.domain.model.AttackType
-import ru.mokita.dotacreeps.domain.model.Attribute
-import ru.mokita.dotacreeps.domain.model.Hero
+import ru.mokita.dotacreeps.core.AttackType
+import ru.mokita.dotacreeps.core.Attribute
 
-class HeroesAdapter(private val heroes: List<Hero>, private val context: Context) :
+class HeroesAdapter(private val heroes: List<ru.mokita.domain.model.Hero>, private val context: Context) :
     RecyclerView.Adapter<HeroesAdapter.HeroViewHolder>() {
 
     inner class HeroViewHolder(private val binding: ItemHeroBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun onBind(hero: Hero) {
+        fun onBind(hero: ru.mokita.domain.model.Hero) {
             with(binding) {
                 progressBar.visibility = View.VISIBLE
                 Glide.with(context).load("${BuildConfig.BASE_URL}${hero.url}").listener(object:
@@ -50,12 +49,15 @@ class HeroesAdapter(private val heroes: List<Hero>, private val context: Context
                 ).into(ivHeroImage)
                 tvHeroName.text = hero.name
                 when(hero.primaryAttribute) {
-                    Attribute.AGILITY.attribute -> Glide.with(context).load(Attribute.AGILITY.url).into(ivPrimaryAttribute)
-                    Attribute.STRENGTH.attribute -> Glide.with(context).load(Attribute.STRENGTH.url).into(ivPrimaryAttribute)
+                    Attribute.AGILITY.attribute -> Glide.with(context).load(
+                        Attribute.AGILITY.url).into(ivPrimaryAttribute)
+                    Attribute.STRENGTH.attribute -> Glide.with(context).load(
+                        Attribute.STRENGTH.url).into(ivPrimaryAttribute)
                     else -> Glide.with(context).load(Attribute.INTELLECT.url).into(ivPrimaryAttribute)
                 }
                 when(hero.attackType) {
-                    AttackType.MELEE.attackType -> Glide.with(context).load(AttackType.MELEE.link).into(ivAttackType)
+                    AttackType.MELEE.attackType -> Glide.with(context).load(
+                        AttackType.MELEE.link).into(ivAttackType)
                     else -> Glide.with(context).load(AttackType.RANGE.link).into(ivAttackType)
                 }
                 tvMovementSpeed.text = hero.basedMovementSpeed

@@ -1,7 +1,7 @@
-package ru.mokita.dotacreeps.data.network.api
+package ru.mokita.data.network.api
 
 import retrofit2.http.GET
-import ru.mokita.dotacreeps.domain.model.Hero
+import ru.mokita.domain.model.Hero
 
 interface DotaApi {
     @GET("/api/heroStats")

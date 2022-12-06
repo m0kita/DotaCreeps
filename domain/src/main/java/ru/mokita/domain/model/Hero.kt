@@ -1,4 +1,4 @@
-package ru.mokita.dotacreeps.domain.model
+package ru.mokita.domain.model
 
 import com.squareup.moshi.Json
 

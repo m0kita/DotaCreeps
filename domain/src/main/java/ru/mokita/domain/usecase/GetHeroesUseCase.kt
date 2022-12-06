@@ -1,7 +1,7 @@
-package ru.mokita.dotacreeps.domain.usecase
+package ru.mokita.domain.usecase
 
-import ru.mokita.dotacreeps.domain.model.Hero
-import ru.mokita.dotacreeps.domain.repository.HeroRepository
+import ru.mokita.domain.model.Hero
+import ru.mokita.domain.repository.HeroRepository
 
 class GetHeroesUseCase(private val repository: HeroRepository) {
 

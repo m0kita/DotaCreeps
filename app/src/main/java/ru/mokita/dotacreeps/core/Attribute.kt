@@ -1,4 +1,4 @@
-package ru.mokita.dotacreeps.domain.model
+package ru.mokita.dotacreeps.core
 
 import ru.mokita.dotacreeps.R
 
